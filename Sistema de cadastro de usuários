@@ -1,0 +1,39 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+ 
+    // Insere o novo usuário no banco de dados
+    $conexao = new mysqli('localhost', 'usuario', 'senha', 'nome_do_banco_de_dados');
+    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+    $resultado = $conexao->query($sql);
+ 
+    if ($resultado) {
+        echo 'Usuário cadastrado com sucesso';
+    } else {
+        echo 'Erro ao cadastrar usuário';
+    }
+}
+?>
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de usuário</title>
+</head>
+<body>
+    <form method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+ 
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+ 
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+ 
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>
