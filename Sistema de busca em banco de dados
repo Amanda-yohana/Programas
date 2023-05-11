@@ -1,0 +1,22 @@
+<?php
+$conexao = new mysqli('localhost', 'usuario', 'senha', 'nome_do_banco_de_dados');
+ 
+if (isset($_POST['termo'])) {
+    $termo = $_POST['termo'];
+    $sql = "SELECT * FROM produtos WHERE nome LIKE '%$termo%'";
+} else {
+    $sql = "SELECT * FROM produtos";
+}
+ 
+$resultado = $conexao->query($sql);
+?>
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de busca</title>
+</head>
+<body>
+    <form method="post">
+        <label for="termo">Pesquisar:</label>
+        <input type="text" id
