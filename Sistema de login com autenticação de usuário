@@ -1,0 +1,37 @@
+<?php
+session_start();
+ 
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    // Verifica se o usuário e a senha estão corretos
+    if ($_POST['username'] == 'usuario' && $_POST['password'] == 'senha') {
+        // Define uma variável de sessão para indicar que o usuário está logado
+        $_SESSION['logado'] = true;
+        header('Location: pagina-secreta.php');
+        exit();
+    } else {
+        $mensagem = 'Usuário ou senha inválidos';
+    }
+}
+?>
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de login</title>
+</head>
+<body>
+    <?php if (isset($mensagem)): ?>
+        <p><?php echo $mensagem; ?></p>
+    <?php endif; ?>
+ 
+    <form method="post">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+ 
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+ 
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>
