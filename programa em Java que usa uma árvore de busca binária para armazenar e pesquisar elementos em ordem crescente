@@ -1,0 +1,71 @@
+public class BinaryTree {
+  private Node root;
+
+  // Classe interna para representar um nó na árvore
+  private class Node {
+    private int value;
+    private Node left;
+    private Node right;
+
+    public Node(int value) {
+      this.value = value;
+    }
+  }
+
+  // Adicionar um valor à árvore
+  public void add(int value) {
+    root = addRecursive(root, value);
+  }
+
+  // Função auxiliar recursiva para adicionar um valor à árvore
+  private Node addRecursive(Node current, int value) {
+    if (current == null) {
+      return new Node(value);
+    }
+
+    if (value < current.value) {
+      current.left = addRecursive(current.left, value);
+    } else if (value > current.value) {
+      current.right = addRecursive(current.right, value);
+    } else {
+      // Valor já existe na árvore
+      return current;
+    }
+
+    return current;
+  }
+
+  // Verificar se um valor está na árvore
+  public boolean contains(int value) {
+    return containsRecursive(root, value);
+  }
+
+  // Função auxiliar recursiva para verificar se um valor está na árvore
+  private boolean containsRecursive(Node current, int value) {
+    if (current == null) {
+      return false;
+    }
+
+    if (value == current.value) {
+      return true;
+    } else if (value < current.value) {
+      return containsRecursive(current.left, value);
+    } else {
+      return containsRecursive(current.right, value);
+    }
+  }
+
+  // Testar a árvore com alguns exemplos
+  public static void main(String[] args) {
+    BinaryTree tree = new BinaryTree();
+
+    tree.add(5);
+    tree.add(3);
+    tree.add(7);
+    tree.add(1);
+    tree.add(9);
+
+    System.out.println(tree.contains(3)); // true
+    System.out.println(tree.contains(6)); // false
+  }
+}
