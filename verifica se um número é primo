@@ -1,0 +1,23 @@
+// Função para verificar se um número é primo
+function isPrime(num) {
+  // Se o número for menor ou igual a 1, não é primo
+  if (num <= 1) {
+    return false;
+  }
+
+  // Verificar se o número é divisível por qualquer número de 2 até a metade do número
+  for (let i = 2; i <= num / 2; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  // Se não for divisível por nenhum número de 2 até a metade do número, é primo
+  return true;
+}
+
+// Testar a função com alguns exemplos
+console.log(isPrime(7)); // true
+console.log(isPrime(12)); // false
+console.log(isPrime(23)); // true
+console.log(isPrime(100)); // false
