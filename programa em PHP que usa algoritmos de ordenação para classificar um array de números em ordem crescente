@@ -1,0 +1,27 @@
+<?php
+
+// Função para classificar um array em ordem crescente usando o algoritmo de ordenação de seleção
+function selectionSort($arr) {
+  $n = count($arr);
+
+  for ($i = 0; $i < $n - 1; $i++) {
+    $minIndex = $i;
+    for ($j = $i + 1; $j < $n; $j++) {
+      if ($arr[$j] < $arr[$minIndex]) {
+        $minIndex = $j;
+      }
+    }
+    if ($minIndex !== $i) {
+      $temp = $arr[$i];
+      $arr[$i] = $arr[$minIndex];
+      $arr[$minIndex] = $temp;
+    }
+  }
+
+  return $arr;
+}
+
+// Testar a função com um exemplo
+$arr = array(3, 7, 1, 4, 2, 6, 5);
+$arrSorted = selectionSort($arr);
+print_r($arrSorted); // Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 [6] => 7 )
