@@ -1,0 +1,15 @@
+<?php
+
+// Função para calcular o fatorial de um número usando recursão
+function factorial($n) {
+  if ($n === 0) {
+    return 1;
+  } else {
+    return $n * factorial($n - 1);
+  }
+}
+
+// Testar a função com alguns exemplos
+echo factorial(5); // 120
+echo factorial(10); // 3628800
+echo factorial(20); // 2432902008176640000
