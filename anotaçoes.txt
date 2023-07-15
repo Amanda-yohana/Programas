@@ -1,0 +1,31 @@
+1- baixar VSCODE
+2- criar pasta de trabalho
+3- entrar no VSCODE 
+4- cliclar no icone explore
+5- abrir folder e selecionar pasta
+6- instalar live serve
+7- clicar no icone extencions
+8- baixar live server
+
+
+//////////////git hub/////////////////
+
+//para baixar
+git clone https://github.com/Amanda-yohana/web/aula1
+
+//comandos somente para a pimeira vez 
+git config --global user.name "Amanda Yohana"
+git config --global user.email amandayohana2303@gmail.com
+
+//para subir arquivos
+git init
+git add .
+git commit -m "mensagem qualquer"
+git branch -M aula 
+git remote add origin https://github.com/Amanda-yohana/web
+git push -u origin aula1
+ 
+//
+cmd -> git init -> git config --global user.name "Amanda Yohana" -> git config --global user.email amandayohana2303@gmail.com -> git add . -> git commit -m "conteudo aula 1" -> git branch -M aula01 -> git remote add origin https://github.com/Amanda-yohana/web -> git push -u origin aula01 ->
+
+//git remote remove origin 
